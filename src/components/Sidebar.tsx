@@ -23,16 +23,16 @@ export const Sidebar: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button
-                variant={state.currentGroup === group.id ? "default" : "ghost"}
-                className={cn(
-                  "w-full justify-start text-left h-12 transition-smooth",
-                  state.currentGroup === group.id 
-                    ? "gradient-primary text-white shadow-md" 
-                    : "hover:bg-accent hover:text-accent-foreground"
-                )}
-                onClick={() => handleGroupSelect(group.id)}
-              >
+            <Button
+              variant={state.currentGroup === group.id ? "premium" : "glass"}
+              className={cn(
+                "w-full justify-start text-left h-12 transition-smooth",
+                state.currentGroup === group.id 
+                  ? "animate-pulse-glow" 
+                  : "hover:bg-accent/60 hover:text-accent-foreground"
+              )}
+              onClick={() => handleGroupSelect(group.id)}
+            >
                 <span className="text-lg mr-3">{group.icon}</span>
                 <span className="font-medium">{group.name}</span>
               </Button>
@@ -41,7 +41,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* Community Stats */}
-        <div className="mt-8 p-4 gradient-metallic rounded-lg">
+        <div className="mt-8 p-4 glass-card rounded-lg animate-float">
           <h3 className="text-sm font-semibold text-foreground mb-2">Community Stats</h3>
           <div className="space-y-1 text-sm text-muted-foreground">
             <div className="flex justify-between">

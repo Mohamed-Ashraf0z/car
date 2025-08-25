@@ -38,7 +38,7 @@ export const CreatePost: React.FC = () => {
   };
 
   return (
-    <Card className="card-automotive mb-6">
+    <Card className="glass-card mb-6 card-glow">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-lg">
           <PlusCircle className="w-5 h-5 text-primary" />
@@ -110,14 +110,16 @@ export const CreatePost: React.FC = () => {
               <Button
                 type="submit"
                 disabled={!title.trim() || !content.trim()}
-                className="gradient-primary text-white flex items-center gap-2"
+                variant="premium"
+                size="lg"
+                className="flex items-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 Post
               </Button>
               <Button
                 type="button"
-                variant="outline"
+                variant="glass"
                 onClick={() => setIsExpanded(false)}
               >
                 Cancel

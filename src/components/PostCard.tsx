@@ -44,7 +44,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, index }) => {
       whileHover={{ y: -2 }}
       className="animate-fade-in"
     >
-      <Card className="card-automotive mb-4">
+      <Card className="glass-card mb-4 card-glow">
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-3">
@@ -114,12 +114,12 @@ export const PostCard: React.FC<PostCardProps> = ({ post, index }) => {
               </Button>
             </motion.div>
             
-            <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+            <Button variant="glass" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-300">
               <MessageCircle className="w-5 h-5" />
               <span>Comment</span>
             </Button>
             
-            <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+            <Button variant="glass" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all duration-300">
               <Share2 className="w-5 h-5" />
               <span>Share</span>
             </Button>
