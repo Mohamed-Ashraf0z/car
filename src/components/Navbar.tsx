@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, Car, Search, MoreHorizontal, Moon, Sun, LogOut, Settings } from 'lucide-react';
+import { User, Car, Search, MoreHorizontal, Moon, Sun, LogOut, Settings, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useApp } from '@/context/AppContext';
 import { toast } from 'sonner';
@@ -41,6 +41,12 @@ export const Navbar: React.FC = () => {
             <Button variant="glass" size="icon" className="hover:scale-105 transition-all duration-300">
               <Search className="w-5 h-5" />
             </Button>
+            
+            <Link to="/ascii-gallery">
+              <Button variant="glass" size="icon" className="hover:scale-105 transition-all duration-300" title="ASCII Art Gallery">
+                <Palette className="w-5 h-5" />
+              </Button>
+            </Link>
             
             {state.isLoggedIn ? (
               <>

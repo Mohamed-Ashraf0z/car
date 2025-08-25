@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import CarList from "./pages/CarList";
 import CarInfo from "./pages/CarInfo";
 import CarManagement from "./pages/CarManagement";
+import AsciiArtGallery from "./pages/AsciiArtGallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const App = () => (
               } 
             />
             <Route path="/car/:carId" element={<CarInfo />} />
+            <Route path="/ascii-gallery" element={<AsciiArtGallery />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

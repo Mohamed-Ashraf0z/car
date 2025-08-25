@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { CreatePost } from '@/components/CreatePost';
 import { PostList } from '@/components/PostList';
+import { CompactCarAscii } from '@/components/CarAsciiArt';
 
 export const Home: React.FC = () => {
   useEffect(() => {
@@ -18,6 +19,11 @@ export const Home: React.FC = () => {
         <main className="flex-1 overflow-y-auto p-6 max-w-4xl mx-auto">
           <CreatePost />
           <PostList />
+          
+          {/* ASCII Art in blank space */}
+          <div className="mt-8 flex justify-center">
+            <CompactCarAscii showRandom={true} animate={true} />
+          </div>
         </main>
       </div>
     </div>

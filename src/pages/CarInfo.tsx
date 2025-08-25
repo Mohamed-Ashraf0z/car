@@ -19,6 +19,7 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useApp } from '@/context/AppContext';
 import { Navbar } from '@/components/Navbar';
+import { CarAsciiArtComponent } from '@/components/CarAsciiArt';
 
 export const CarInfo: React.FC = () => {
   const { carId } = useParams<{ carId: string }>();
@@ -275,6 +276,27 @@ export const CarInfo: React.FC = () => {
                     {state.cars.filter(c => c.owner === car.owner && c.id !== car.id).length === 0 && (
                       <p className="text-muted-foreground text-sm">No other cars from this owner</p>
                     )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* ASCII Art in Blank Space */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
+                <Card className="glass border-border/30 backdrop-blur-xl">
+                  <CardHeader>
+                    <CardTitle className="text-lg">Car ASCII Art</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CarAsciiArtComponent 
+                      carModel={`${car.make} ${car.model}`}
+                      showTitle={false}
+                      compact={true}
+                      animate={true}
+                    />
                   </CardContent>
                 </Card>
               </motion.div>
