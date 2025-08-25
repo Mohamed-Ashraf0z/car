@@ -26,7 +26,16 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					hover: 'hsl(var(--primary-hover))'
+				},
+				racing: {
+					DEFAULT: 'hsl(var(--accent-racing))',
+					foreground: 'hsl(var(--accent-racing-foreground))'
+				},
+				electric: {
+					DEFAULT: 'hsl(var(--accent-electric))',
+					foreground: 'hsl(var(--accent-electric-foreground))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
