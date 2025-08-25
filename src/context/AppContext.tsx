@@ -18,16 +18,40 @@ export interface CarGroup {
   color: string;
 }
 
+export interface Car {
+  id: string;
+  make: string;
+  model: string;
+  year: number;
+  mods: string[];
+  imageUrl: string;
+  owner: string;
+}
+
+export interface User {
+  id: string;
+  username: string;
+  bio: string;
+  avatarUrl: string;
+}
+
 interface AppState {
   posts: Post[];
   currentGroup: string | null;
   groups: CarGroup[];
+  isLoggedIn: boolean;
+  currentUser: User | null;
+  cars: Car[];
 }
 
 type AppAction = 
   | { type: 'ADD_POST'; payload: Omit<Post, 'id' | 'likes' | 'likedByUser' | 'timestamp'> }
   | { type: 'TOGGLE_LIKE'; payload: { postId: string } }
-  | { type: 'SET_CURRENT_GROUP'; payload: { groupId: string | null } };
+  | { type: 'SET_CURRENT_GROUP'; payload: { groupId: string | null } }
+  | { type: 'LOGIN'; payload: { user: User } }
+  | { type: 'LOGOUT' }
+  | { type: 'ADD_CAR'; payload: Omit<Car, 'id'> }
+  | { type: 'UPDATE_USER'; payload: Partial<User> };
 
 const initialGroups: CarGroup[] = [
   { id: 'all', name: 'All Cars', icon: '🚗', color: 'primary' },
@@ -81,10 +105,34 @@ const initialPosts: Post[] = [
   },
 ];
 
+const initialCars: Car[] = [
+  {
+    id: '1',
+    make: 'Porsche',
+    model: '911 Carrera S',
+    year: 2023,
+    mods: ['Sport Exhaust', 'Carbon Fiber Wheels', 'Lowered Suspension'],
+    imageUrl: '/placeholder-car.jpg',
+    owner: 'SpeedDemon92',
+  },
+  {
+    id: '2',
+    make: 'Ford',
+    model: 'Mustang Boss 429',
+    year: 1969,
+    mods: ['Restored Engine', 'Custom Paint', 'Vintage Interior'],
+    imageUrl: '/placeholder-car.jpg',
+    owner: 'ClassicCarLover',
+  },
+];
+
 const initialState: AppState = {
   posts: initialPosts,
   currentGroup: 'all',
   groups: initialGroups,
+  isLoggedIn: false,
+  currentUser: null,
+  cars: initialCars,
 };
 
 const appReducer = (state: AppState, action: AppAction): AppState => {
@@ -120,6 +168,36 @@ const appReducer = (state: AppState, action: AppAction): AppState => {
       return {
         ...state,
         currentGroup: action.payload.groupId,
+      };
+
+    case 'LOGIN':
+      return {
+        ...state,
+        isLoggedIn: true,
+        currentUser: action.payload.user,
+      };
+
+    case 'LOGOUT':
+      return {
+        ...state,
+        isLoggedIn: false,
+        currentUser: null,
+      };
+
+    case 'ADD_CAR':
+      const newCar: Car = {
+        ...action.payload,
+        id: Date.now().toString(),
+      };
+      return {
+        ...state,
+        cars: [...state.cars, newCar],
+      };
+
+    case 'UPDATE_USER':
+      return {
+        ...state,
+        currentUser: state.currentUser ? { ...state.currentUser, ...action.payload } : null,
       };
     
     default:
