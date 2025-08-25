@@ -26,6 +26,7 @@ export interface Car {
   mods: string[];
   imageUrl: string;
   owner: string;
+  description: string;
 }
 
 export interface User {
@@ -114,6 +115,7 @@ const initialCars: Car[] = [
     mods: ['Sport Exhaust', 'Carbon Fiber Wheels', 'Lowered Suspension'],
     imageUrl: '/placeholder-car.jpg',
     owner: 'SpeedDemon92',
+    description: 'A pristine 2023 Porsche 911 Carrera S with carefully selected performance modifications. The flat-six engine produces an incredible sound through the sport exhaust, while the carbon fiber wheels and lowered suspension provide exceptional handling and a more aggressive stance.',
   },
   {
     id: '2',
@@ -123,6 +125,7 @@ const initialCars: Car[] = [
     mods: ['Restored Engine', 'Custom Paint', 'Vintage Interior'],
     imageUrl: '/placeholder-car.jpg',
     owner: 'ClassicCarLover',
+    description: 'A fully restored 1969 Ford Mustang Boss 429, one of the rarest and most powerful Mustangs ever built. This beauty has been painstakingly restored to factory specifications with a few tasteful custom touches including a period-correct paint job and authentic vintage interior.',
   },
 ];
 

@@ -44,7 +44,7 @@ export const Navbar: React.FC = () => {
             
             {state.isLoggedIn ? (
               <>
-                <Link to="/car-info">
+                <Link to="/cars">
                   <Button variant="glass" size="icon" className="hover:scale-105 transition-all duration-300">
                     <Car className="w-5 h-5" />
                   </Button>

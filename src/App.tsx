@@ -8,7 +8,9 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import CarList from "./pages/CarList";
 import CarInfo from "./pages/CarInfo";
+import CarManagement from "./pages/CarManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cars" element={<CarList />} />
             <Route 
               path="/profile" 
               element={
@@ -35,10 +38,11 @@ const App = () => (
               path="/car-info" 
               element={
                 <ProtectedRoute>
-                  <CarInfo />
+                  <CarManagement />
                 </ProtectedRoute>
               } 
             />
+            <Route path="/car/:carId" element={<CarInfo />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
